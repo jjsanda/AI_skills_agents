@@ -1,0 +1,25 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "14px"}}}%%
+flowchart TD
+    U([User]):::user --> CLI["agentkit CLI<br/>list - validate - run - diagrams"]:::kit
+    CLI --> DISC["Discovery &amp; Validation<br/>parse + spec-check SKILL.md"]:::kit
+    CLI --> LOOP["Agent loop<br/>tool-using"]:::kit
+
+    subgraph LIB["Library (this repo)"]
+        SK["Skills<br/>pdf-extract - data-profiler<br/>web-research - code-reviewer"]:::skill
+        AG["Subagents<br/>orchestrator - researcher - implementer<br/>reviewer - doc-writer"]:::agent
+    end
+
+    DISC --> SK
+    LOOP --> SK
+    SK -. "preloaded via skills:" .-> AG
+
+    LOOP --> LLM[("Anthropic<br/>Messages API")]:::ext
+    LOOP -. "offline default" .-> MOCK["Deterministic<br/>mock client"]:::mock
+    AG -. optional .-> MCP[("MCP servers")]:::ext
+
+    classDef user fill:#E8F0FE,stroke:#4C72B0,stroke-width:2px,color:#1A1A1A
+    classDef kit fill:#FFF3E0,stroke:#E08E0B,stroke-width:2px,color:#1A1A1A
+    classDef skill fill:#E6F4EA,stroke:#2E8B57,stroke-width:2px,color:#1A1A1A
+    classDef agent fill:#F3E8FD,stroke:#8052CC,stroke-width:2px,color:#1A1A1A
+    classDef ext fill:#ECEFF1,stroke:#607D8B,stroke-width:2px,color:#1A1A1A
+    classDef mock fill:#FDEAEA,stroke:#C0392B,stroke-width:2px,color:#1A1A1A

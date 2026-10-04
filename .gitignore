@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+/dist/
+
+# Virtual environments
+.venv/
+/venv/
+
+# Tooling caches / coverage
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+.coverage.*
+/coverage.xml
+htmlcov/
+
+# Node (mermaid-cli)
+node_modules/
+
+# Secrets — never commit these
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.sw[nop]
+.idea/
+.vscode/
+
+# Claude Code (`make claude-install` symlinks, per-user state)
+.claude/skills/
+.claude/agents/
+.claude/settings.local.json
+.claude/worktrees/

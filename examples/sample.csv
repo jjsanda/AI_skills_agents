@@ -1,0 +1,6 @@
+name,age,city,active
+Alice,30,Prague,true
+Bob,,Brno,false
+Carol,25,,true
+Dave,40,Prague,
+Erin,30,Prague,true

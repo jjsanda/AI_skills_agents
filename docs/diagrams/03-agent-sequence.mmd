@@ -1,0 +1,20 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "14px"}}}%%
+sequenceDiagram
+    autonumber
+    actor User
+    participant O as Orchestrator
+    participant R as Researcher
+    participant I as Implementer
+    participant V as Reviewer
+
+    User->>O: Task
+    O->>O: Plan and choose handlers
+    O->>R: Delegate research
+    Note over R: uses web-research skill
+    R-->>O: Sourced brief
+    O->>I: Delegate implementation
+    Note over I: preloads code-reviewer skill
+    I-->>O: Change + self-review
+    O->>V: Request review
+    V-->>O: Critical / Warning / Suggestion
+    O-->>User: Consolidated result

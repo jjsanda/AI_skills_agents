@@ -1,0 +1,3 @@
+docs/diagrams/exported/** linguist-generated=true
+docs/diagrams/exported/*.png binary
+docs/diagrams/exported/*.svg binary

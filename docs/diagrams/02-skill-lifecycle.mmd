@@ -1,0 +1,11 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "14px"}}}%%
+flowchart TD
+    S([Agent starts]):::user --> L1["Level 1 - Metadata<br/>name + description<br/>~100 tokens, always loaded"]:::l1
+    L1 -->|"task matches the description"| L2["Level 2 - Instructions<br/>the full SKILL.md body<br/>loaded on trigger"]:::l2
+    L2 -->|"needs deeper detail or a tool"| L3["Level 3 - Resources<br/>scripts / references / assets<br/>loaded on demand"]:::l3
+    L3 --> D([Task completed]):::user
+
+    classDef user fill:#E8F0FE,stroke:#4C72B0,stroke-width:2px,color:#1A1A1A
+    classDef l1 fill:#FFF3E0,stroke:#E08E0B,stroke-width:2px,color:#1A1A1A
+    classDef l2 fill:#E6F4EA,stroke:#2E8B57,stroke-width:2px,color:#1A1A1A
+    classDef l3 fill:#F3E8FD,stroke:#8052CC,stroke-width:2px,color:#1A1A1A

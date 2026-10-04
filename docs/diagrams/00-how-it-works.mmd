@@ -1,0 +1,9 @@
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "Helvetica, Arial, sans-serif", "fontSize": "16px"}}}%%
+flowchart LR
+    A([You describe<br/>a task]):::user --> B[agentkit finds the<br/>right Skill]:::kit
+    B --> C[An agent runs the Skill's<br/>tools to do the work]:::agent
+    C --> D([You get a clean,<br/>structured result]):::user
+
+    classDef user fill:#E8F0FE,stroke:#4C72B0,stroke-width:2px,color:#1A1A1A
+    classDef kit fill:#FFF3E0,stroke:#E08E0B,stroke-width:2px,color:#1A1A1A
+    classDef agent fill:#E6F4EA,stroke:#2E8B57,stroke-width:2px,color:#1A1A1A
